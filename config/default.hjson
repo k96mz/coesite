@@ -1,0 +1,15 @@
+{
+ morganFormat: tiny
+ htdocsPath: public
+ privkeyPath: (somewhere)/privkey.pem
+ fullchainPath: (somewhere)/cert.pem
+ logDirPath: log
+ port: 443
+ tz:{
+  un-z5: 5
+  osm-z456: 6
+ }
+ defaultZ: 6
+ mbtilesDir: mbtiles
+}
+
