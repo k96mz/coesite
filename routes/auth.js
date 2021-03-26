@@ -5,7 +5,7 @@ var router = require('express-promise-router')();
 router.get('/signin',
   async function (req, res) {
     const urlParameters = {
-      scopes: process.env.OAUTH_SCOPES.split(','),
+      scopes: process.env.OAUTH_SCOPES.split(','), //check
       redirectUri: process.env.OAUTH_REDIRECT_URI
     };
 
@@ -24,6 +24,7 @@ router.get('/signin',
     }
   }
 );
+
 
 router.get('/callback',
   async function(req, res) {
@@ -45,8 +46,10 @@ router.get('/callback',
       // Add the user to user storage
       req.app.locals.users[req.session.userId] = {
         displayName: user.displayName
+      //  email: user.mail || user.userPrincipalName,
+      //  timeZone: user.mailboxSettings.timeZone
       };
-    } catch (error) {
+    } catch(error) {
       req.flash('error_msg', {
         message: 'Error completing authentication',
         debug: JSON.stringify(error, Object.getOwnPropertyNames(error))
@@ -84,3 +87,4 @@ router.get('/signout',
 );
 
 module.exports = router;
+

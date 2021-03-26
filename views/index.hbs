@@ -1,54 +1,24 @@
 <div class="jumbotron">
   <h1>Unite Map powered by UN Vector Tile Toolkit.</h1>
-  <p class="lead">This sample app is based on the Microsoft Graph API (Node.js Graph Tutorial)</p>
+  <p class="lead">This sample map app is based on the Microsoft Graph API (Node.js Graph Tutorial)</p>
   <p class="lead">The United Nations Vector Tile Toolkit (UNVT) is a collection of Open Source Software (OSS) to produce, host, style and optimize vector tiles for web mapping.</p>
   {{#if user}}
     <h4>Welcome {{ user.displayName }}!</h4>
-    <p>Now, the vector tile is being re-generated from the new PostGIS database </p>
     <p><h5>What's new?</h5>
-       2021-03-22: Vector tiles are updated weekly (daily for primary area)<br>
+       2021-03-26: Launch of new server repository<br>
 <p>
 <h4>Map APP</h4>
-<h5><a href="./map-vtile2">map test (tile delivery uzing ZL4,5,6 modules.)</a></h5>
+<h5><a href="./map">map </a></h5>
 with Mapbox-gl.js version 1<br>
-URL: https://dev-unvt.dfs.un.org/map-vtile2<br>
 Tile URL:<br>
 <ol>
-<li>un-small https://dev-unvt.dfs.un.org/un-s/{z}/{x}/{y}.pbf </li>
-<li>osm-small https://dev-unvt.dfs.un.org/osm-s/{z}/{x}/{y}.pbf </li>
-<li>un-large https://dev-unvt.dfs.un.org/zxy/un-z5/{z}/{x}/{y}.pbf </li>
-<li>osm-large https://dev-unvt.dfs.un.org/vtile2/zxy/osm-z456/{z}/{x}/{y}.pbf </li>
+<li>un-small https://XXX/un-s/{z}/{x}/{y}.pbf </li>
+<li>osm-small https://XXX/osm-s/{z}/{x}/{y}.pbf </li>
+<li>un-large https://XXX/vtile-m/zxy/un-z5/{z}/{x}/{y}.pbf </li>
+<li>osm-large https://XXX/vtile-m/zxy/osm-z456/{z}/{x}/{y}.pbf </li>
 </ol>
 
-
-<h5><a href="./simple-arc.html">A simple map with ArcGIS API for JavaScript (un-s only. upto ZL4.)</a></h5>
-Style URL: https://dev-unvt.dfs.un.org/simple-style-uns-arc.json<br>
-
-
 </p>
-
- 
-<p>
-<h4>Map Layer Groups</h4>
-   <ol>
-     <li><a href="./map0">map-0-base</a></li>
-     <li><a href="./map1">map-1-landuse</a></li>
-     <li><a href="./map2">map-2-hydro</a></li>
-     <li><a href="./map3">map-3-area</a></li>
-     <li><a href="./map4">map-4-trans</a></li>
-     <li><a href="./map5">map-5-admin</a></li>
-     <li><a href="./map6">map-6-poi</a></li>
-     <li><a href="./map7">map-7-place</a></li>
-     <li><a href="./map8">map-8-label</a></li>
-    </ol>
-   <ol>
-     <li><a href="./map9">map-9-with Cloud Free Satelite Imagery(WMS)</a></li>
-     <li><a href="./map10">map-10-with New Jersey sample (WMS)</a></li>
-    </ol>
-
-</p>
-
-
 
 
 

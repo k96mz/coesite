@@ -33,8 +33,9 @@ const jumpInto = async (page, z, x, y) => {
    waitT = 5000
   }
   await page.goto(
-//    `https://127.0.0.1/map4img#${z}/${tile2lat(y + 0.5, z)}/${tile2long(x + 0.5, z)}` //location of the map
+//    `http://127.0.0.1/map4img#${z}/${tile2lat(y + 0.5, z)}/${tile2long(x + 0.5, z)}` //location of the map
       `https://hfu.github.io/plow/#${z}/${tile2lat(y + 0.5, z)}/${tile2long(x + 0.5, z)}`//Please replace
+//      `https://dev-unvt.dfs.un.org/map4img-o#${z}/${tile2lat(y + 0.5, z)}/${tile2long(x + 0.5, z)}`
   )
   await page.waitForNavigation()
   await page.waitForTimeout(waitT) //gray image appears without this
@@ -67,10 +68,10 @@ router.get(`/raster/:Z/:X/:Y.png`,
 
 // const browser = await chromium.launch({ headless: false }) //need when checking
  const browser = await chromium.launch({ headless: true })
+// const browser = await chromium.launch({ headless: true , proxy: {'server': 'http://10.130.230.123:3218'} })
   const page = await browser.newPage({
     viewport: { width: 768, height: 768 }
   })
-
 
   await jumpInto(page, Z, X, Y)
   await browser.close()

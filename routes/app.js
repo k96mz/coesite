@@ -95,7 +95,6 @@ app.locals.msalClient = new msal.ConfidentialClientApplication(msalConfig);
 var indexRouter = require('./routes/index')
 var usersRouter = require('./routes/users')
 var mapRouter = require('./routes/map') //test 0104
-var mapVtile2Router = require('./routes/map-vtile2') //test 0104
 var mapRouter0 = require('./routes/map0') //test 0104
 var mapRouter1 = require('./routes/map1') //test 0104
 var mapRouter2 = require('./routes/map2') //test 0104
@@ -107,12 +106,7 @@ var mapRouter7 = require('./routes/map7') //test 0130
 var mapRouter8 = require('./routes/map8') //test 0130
 var mapRouter9 = require('./routes/map9') //test 0130
 var mapRouter10 = require('./routes/map10') //test 0130
-var map4imgRouter = require('./routes/map4img') //test 0315
-var map4imgORouter = require('./routes/map4img-o') //test 0315
 var plowRouter = require('./routes/plow')
-var plowORouter = require('./routes/plow-open')
-var vtile2Router = require('./routes/vtile2') //test 0308
-var vtileORouter = require('./routes/vtile-open') //test 0322
 
 // Session middleware
 // NOTE: Uses default in-memory session store, which is not
@@ -173,7 +167,6 @@ app.use('/', indexRouter)
 app.use('/auth', authRouter) //after app.use('/', indexRouter)
 app.use('/users', usersRouter)
 app.use('/map', mapRouter)
-app.use('/map-vtile2', mapVtile2Router)
 app.use('/map0', mapRouter0)
 app.use('/map1', mapRouter1)
 app.use('/map2', mapRouter2)
@@ -186,11 +179,6 @@ app.use('/map8', mapRouter8)
 app.use('/map9', mapRouter9)
 app.use('/map10', mapRouter10)
 app.use('/plow', plowRouter)
-app.use('/plow-open', plowORouter)
-app.use('/vtile2', vtile2Router)
-app.use('/vtile-open', vtileORouter)
-app.use('/map4img', map4imgRouter)
-app.use('/map4img-o', map4imgORouter)
 
 const getMBTiles = async (t, z, x, y) => {
     let mbtilesPath = ''

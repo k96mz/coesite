@@ -33,7 +33,7 @@ const jumpInto = async (page, z, x, y) => {
    waitT = 5000
   }
   await page.goto(
-//    `https://127.0.0.1/map4img#${z}/${tile2lat(y + 0.5, z)}/${tile2long(x + 0.5, z)}` //location of the map
+//    `http://127.0.0.1/map4img#${z}/${tile2lat(y + 0.5, z)}/${tile2long(x + 0.5, z)}` //location of the map
       `https://hfu.github.io/plow/#${z}/${tile2lat(y + 0.5, z)}/${tile2long(x + 0.5, z)}`//Please replace
   )
   await page.waitForNavigation()

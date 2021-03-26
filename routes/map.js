@@ -5,12 +5,17 @@ var router = express.Router();
 router.get('/', 
  async function(req, res, next) {
 
+if (!req.session.userId) {
+  // Redirect unauthenticated requests to home page
+    res.redirect('/')
+    } else {
   let params = {
     active: { home: true }
-  };
+     };
 
- // Get the user
-    const user = req.app.locals.users[req.session.userId];
+// Get the user
+   const user = req.app.locals.users[req.session.userId];
+
 // Get the access token
    var accessToken;
     try {
@@ -20,9 +25,22 @@ router.get('/',
       return;
     }
 
-  res.render('index', params);
-});
 
+      if (accessToken && accessToken.length > 0) {
+        try {
+         // render
+           res.render('map',{ layout: false } ); 
+           //   res.render('map', params); 
+        } catch (err) {
+          res.send(JSON.stringify(err, Object.getOwnPropertyNames(err)));
+        }
+      }
+      else {
+        req.flash('error_msg', 'Could not get an access token');
+      }
+    }
+  }
+);
 
 async function getAccessToken(userId, msalClient) {
   // Look up the user's account in the cache
@@ -46,5 +64,5 @@ async function getAccessToken(userId, msalClient) {
   }
 }
 
-module.exports = router;
 
+module.exports = router;
