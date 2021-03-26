@@ -97,7 +97,7 @@ var vtileORouter = require('./routes/vtile-open') //test 0322
 // NOTE: Uses default in-memory session store, which is not
 // suitable for production
 app.use(session({
-    secret: 'your secreat',
+    secret: process.env.OAUTH_APP_SECRET,
     resave: false,
     saveUninitialized: false,
     unset: 'destroy'

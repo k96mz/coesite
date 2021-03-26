@@ -103,11 +103,7 @@ const getTile = async (mbtiles, z, x, y) => {
 }
 
 
-
-
 /* GET Tile. */
-//router.get('/', 
-// async function(req, res, next) {
 router.get(`/zxy/:t/:z/:x/:y.pbf`, 
  async function(req, res) {
   busy = true
@@ -137,8 +133,7 @@ router.get(`/zxy/:t/:z/:x/:y.pbf`,
     res.status(404).send(`mbtiles not found for /zxy/${t}/${z}/${x}/${y}.pbf`)
   })
 
- };
-
+ }
 );
 
 
