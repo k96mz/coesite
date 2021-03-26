@@ -33,9 +33,7 @@ const jumpInto = async (page, z, x, y) => {
    waitT = 5000
   }
   await page.goto(
-//    `http://127.0.0.1/map4img#${z}/${tile2lat(y + 0.5, z)}/${tile2long(x + 0.5, z)}` //location of the map
-      `https://hfu.github.io/plow/#${z}/${tile2lat(y + 0.5, z)}/${tile2long(x + 0.5, z)}`//Please replace
-//      `https://dev-unvt.dfs.un.org/map4img-o#${z}/${tile2lat(y + 0.5, z)}/${tile2long(x + 0.5, z)}`
+      `https://hfu.github.io/plow/#${z}/${tile2lat(y + 0.5, z)}/${tile2long(x + 0.5, z)}` //Please replace
   )
   await page.waitForNavigation()
   await page.waitForTimeout(waitT) //gray image appears without this
