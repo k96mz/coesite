@@ -11,7 +11,6 @@ const TimeFormat = require('hh-mm-ss')
 // config constants
 const defaultZ = config.get('defaultZ')
 const mbtilesDir = config.get('mbtilesDir')
-const fontsDir = config.get('fontsDir')
 
 // global variables
 let mbtilesPool = {}
