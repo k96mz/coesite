@@ -27,34 +27,6 @@ const tile2lat = (y, z) => {
   return 180 / Math.PI * Math.atan(0.5 * (Math.exp(n) - Math.exp(-n)))
 }
 
-const jumpInto = async (page, z, x, y) => {
-  let waitT = 2500 * (MAXZ - z)
-  if (z < MAXZ - 2){
-   waitT = 5000
-  }
-  await page.goto(
-      `https://hfu.github.io/plow/#${z}/${tile2lat(y + 0.5, z)}/${tile2long(x + 0.5, z)}` //Please replace
-  )
-  await page.waitForNavigation()
-  await page.waitForTimeout(waitT) //gray image appears without this
-
-//var buff //if buff is declared here, an error occur....
-buff = await page.screenshot({
-    clip: {
-      x: 128,
-      y: 128,
-      width: 512,
-      height: 512
-    }
-  })
-//console.log(buff.toString('base64')); //need when checking
-
-//replaced (until here)
-
-}
-
-
-
 
 /* GET png */
 router.get(`/raster/:Z/:X/:Y.png`, 
@@ -71,7 +43,27 @@ router.get(`/raster/:Z/:X/:Y.png`,
     viewport: { width: 768, height: 768 }
   })
 
-  await jumpInto(page, Z, X, Y)
+  let waitT = 2500 * (MAXZ - Z)
+  if (Z < MAXZ - 2){
+   waitT = 5000
+  }
+  await page.goto(
+      `https://hfu.github.io/plow/#${Z}/${tile2lat(Y + 0.5, Z)}/${tile2long(X + 0.5, Z)}` //Please replace
+  )
+  await page.waitForNavigation()
+  await page.waitForTimeout(waitT) //gray image appears without this
+
+  let buff
+  buff = await page.screenshot({
+    clip: {
+      x: 128,
+      y: 128,
+      width: 512,
+      height: 512
+    }
+  })
+
+
   await browser.close()
 
 //      if (buff.body) {
