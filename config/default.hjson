@@ -9,6 +9,10 @@
   un-z5: 5
   osm-z456: 6
  }
+ sTileName:{
+  un-z5: small-scale
+  osm-z456: small-scale
+ }
  defaultZ: 6
  mbtilesDir: mbtiles
 }

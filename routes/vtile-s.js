@@ -15,6 +15,7 @@ const mbtilesDir = config.get('mbtilesDir')
 // global variables
 let mbtilesPool = {}
 let tz = config.get('tz')
+let sTileName = config.get('sTileName')
 let busy = false
 
 var app = express()
@@ -26,7 +27,12 @@ const getMBTiles = async (t, z, x, y) => {
   let mbtilesPath = ''
   if (!tz[t]) tz[t] = defaultZ
   if (z < tz[t]) {
-    mbtilesPath = `${mbtilesDir}/${t}/0-0-0.mbtiles`
+    if (sTileName[t]) {
+      let stname = sTileName[t]
+      mbtilesPath = `${mbtilesDir}/${t}/${stname}.mbtiles`
+      } else {
+      mbtilesPath = `${mbtilesDir}/${t}/0-0-0.mbtiles`
+      }
   } else {
     mbtilesPath =
       `${mbtilesDir}/${t}/${tz[t]}-${x >> (z - tz[t])}-${y >> (z - tz[t])}.mbtiles`
