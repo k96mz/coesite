@@ -25,5 +25,9 @@ Note: if you use RHEL or CentOS, playwright may not work due to the missing libr
 ## See also  
 https://docs.microsoft.com/en-us/graph/tutorials/node?WT.mc_id=Portal-Microsoft_AAD_RegisteredApps&tutorial-step=3  
 
+## About storytelling  
+The contents in the folder "s" came from the following repository.  
+https://github.com/optgeo/s
+
 
 
