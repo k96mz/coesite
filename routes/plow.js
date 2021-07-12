@@ -38,7 +38,7 @@ router.get(`/raster/:Z/:X/:Y.png`,
 
 if (!req.session.userId) {
   // reply error message
-    res.status(404).send(`Please log in to get: /plow/raster/${Z}/${X}/${Y}.png`)
+    res.status(401).send(`Please log in to get: /plow/raster/${Z}/${X}/${Y}.png`)
    busy = false
     } else {
 // const browser = await chromium.launch({ headless: false }) //need when checking

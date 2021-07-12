@@ -89,7 +89,7 @@ router.get(`/zxy/:t/:z/:x/:y.pbf`,
 if (!req.session.userId) {
   // Redirect unauthenticated requests to home page
    // res.redirect('/')
-    res.status(404).send(`Please log in to get: /zxy/${t}/${z}/${x}/${y}.pbf`)
+    res.status(401).send(`Please log in to get: /zxy/${t}/${z}/${x}/${y}.pbf`)
    // busy = false
     } else {
 //  let params = {
