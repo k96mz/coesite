@@ -15,5 +15,9 @@
  }
  defaultZ: 6
  mbtilesDir: mbtiles
+ userInfo:{
+ vtUser: username
+ vtPass: password
+ }
 }
 

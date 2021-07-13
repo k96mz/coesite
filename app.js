@@ -91,7 +91,7 @@ var mapRouter = require('./routes/map') //test 0104
 //var vtileSRouter = require('./routes/vtile-s') // for single module
 var vtileMRouter = require('./routes/vtile-m') //test 0308
 var vtileORouter = require('./routes/vtile-open') //test 0322
-
+var vtilePRouter = require('./routes/vtile-pass') //test 0713
 
 // Session middleware
 // NOTE: Uses default in-memory session store, which is not
@@ -154,7 +154,7 @@ app.use('/map', mapRouter)
 //app.use('/vtile-s', vtileSRouter)
 app.use('/vtile-m', vtileMRouter)
 app.use('/vtile-open', vtileORouter)
-
+app.use('/vtile-pass', vtilePRouter) //0713
 
 
 // error handler
