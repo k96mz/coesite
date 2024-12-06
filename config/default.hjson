@@ -8,10 +8,14 @@
  tz:{
   un-z5: 5
   osm-z456: 6
+  naturalEarth: 6
+  produce-gsc-un: 6
  }
  sTileName:{
   un-z5: small-scale
   osm-z456: small-scale
+  naturalEarth: 0-0-0naturalEarth
+  produce-gsc-un: 6-35-31
  }
  defaultZ: 6
  mbtilesDir: mbtiles

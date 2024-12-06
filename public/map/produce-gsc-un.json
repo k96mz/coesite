@@ -1,0 +1,49 @@
+{
+  "version": 8,
+  "name": "Empty Style",
+  "metadata": { "maputnik:renderer": "mlgljs" },
+  "sources": {
+    "v": {
+      "type": "vector",
+      "tiles": [
+        "http://localhost:3000/vtile-open/zxy/produce-gsc-un/{z}/{x}/{y}.pbf"
+      ],
+      "minzoom": 0,
+      "maxzoom": 14,
+      "scheme": "xyz"
+    }
+  },
+  "sprite": "",
+  "glyphs": "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+  "layers": [
+    {
+      "id": "landmass",
+      "type": "fill",
+      "source": "v",
+      "source-layer": "landmass",
+      "paint": { "fill-color": "rgba(234, 226, 226, 1)" }
+    },
+    {
+      "id": "bndl",
+      "type": "line",
+      "source": "v",
+      "source-layer": "bndl",
+      "paint": { "line-color": "rgba(57, 46, 46, 1)" }
+    },
+    {
+      "id": "lab_cty",
+      "type": "circle",
+      "source": "v",
+      "source-layer": "lab_cty",
+      "paint": { "circle-color": "rgba(222, 106, 4, 1)" }
+    },
+    {
+      "id": "un_popp",
+      "type": "circle",
+      "source": "v",
+      "source-layer": "un_popp",
+      "paint": { "circle-color": "rgba(7, 44, 214, 1)" }
+    }
+  ],
+  "id": "shs0y0a"
+}
