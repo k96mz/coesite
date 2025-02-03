@@ -8,7 +8,7 @@
     "natural": {
       "type": "vector",
       "tiles": [
-        "http://localhost:3000/vtile-open/zxy/naturalEarth/{z}/{x}/{y}.pbf"
+        "https://k96mz.net:3000/vtile-open/zxy/naturalEarth/{z}/{x}/{y}.pbf"
       ]
     }
   },

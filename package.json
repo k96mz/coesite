@@ -29,6 +29,7 @@
     "hh-mm-ss": "^1.2.0",
     "hjson": "^3.2.2",
     "http-errors": "^1.8.0",
+    "http2-express-bridge": "^1.0.7",
     "https": "^1.0.0",
     "isomorphic-fetch": "^3.0.0",
     "moment": "^2.29.1",

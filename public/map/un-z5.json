@@ -5,7 +5,7 @@
   "sources": {
     "v": {
       "type": "vector",
-      "tiles": ["http://localhost:3000/vtile-open/zxy/un-z5/{z}/{x}/{y}.pbf"],
+      "tiles": ["https://k96mz.net:3000/vtile-open/zxy/un-z5/{z}/{x}/{y}.pbf"],
       "minzoom": 0,
       "maxzoom": 14,
       "scheme": "xyz"
