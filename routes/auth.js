@@ -38,8 +38,8 @@ router.get('/callback', async function (req, res) {
     // Save the user's homeAccountId in their session
     req.session.userId = response.account.homeAccountId;
 
-    // ここでセッションを再代入して保存を確実にする
-    req.session = { ...req.session };
+    // ここでセッションを再代入して保存を確実にする。この記述があると、プロキシサーバを使用した際にうまくいかない。
+    // req.session = { ...req.session };
 
     const user = await graph.getUserDetails(response.accessToken);
 
