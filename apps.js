@@ -172,19 +172,19 @@ app.use(function (err, req, res, next) {
 });
 
 //for https
-// spdy
-//   .createServer(
-//     {
-//       key: fs.readFileSync(privkeyPath),
-//       cert: fs.readFileSync(fullchainPath),
-//     },
-//     app
-//   )
-//   .listen(port);
+spdy
+  .createServer(
+    {
+      key: fs.readFileSync(privkeyPath),
+      cert: fs.readFileSync(fullchainPath),
+    },
+    app
+  )
+  .listen(port);
 
 //for http
 //app.listen(port, () => {
 //    console.log(`Running at Port ${port} ...`)
-app.listen(8080, () => {
-  console.log('running at port 8080 ...');
-});
+// app.listen(3000, () => {
+//   console.log('running at port 3000 ...');
+// });

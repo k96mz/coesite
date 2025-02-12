@@ -7,9 +7,7 @@
   "sources": {
     "natural": {
       "type": "vector",
-      "tiles": [
-        "https://k96mz.net:3000/vtile-open/zxy/naturalEarth/{z}/{x}/{y}.pbf"
-      ]
+      "tiles": ["https://k96mz.com/vtile-open/zxy/naturalEarth/{z}/{x}/{y}.pbf"]
     }
   },
   "layers": [

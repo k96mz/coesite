@@ -1,10 +1,10 @@
-var graph = require("../graph");
-var router = require("express-promise-router")();
+var graph = require('../graph');
+var router = require('express-promise-router')();
 
 /* GET auth callback. */
-router.get("/signin", async function (req, res) {
+router.get('/signin', async function (req, res) {
   const urlParameters = {
-    scopes: process.env.OAUTH_SCOPES.split(","), //check
+    scopes: process.env.OAUTH_SCOPES.split(','), //check
     redirectUri: process.env.OAUTH_REDIRECT_URI,
   };
 
@@ -15,18 +15,18 @@ router.get("/signin", async function (req, res) {
     res.redirect(authUrl);
   } catch (error) {
     console.log(`Error: ${error}`);
-    req.flash("error_msg", {
-      message: "Error getting auth URL",
+    req.flash('error_msg', {
+      message: 'Error getting auth URL',
       debug: JSON.stringify(error, Object.getOwnPropertyNames(error)),
     });
-    res.redirect("/");
+    res.redirect('/');
   }
 });
 
-router.get("/callback", async function (req, res) {
+router.get('/callback', async function (req, res) {
   const tokenRequest = {
     code: req.query.code,
-    scopes: process.env.OAUTH_SCOPES.split(","),
+    scopes: process.env.OAUTH_SCOPES.split(','),
     redirectUri: process.env.OAUTH_REDIRECT_URI,
   };
 
@@ -38,6 +38,9 @@ router.get("/callback", async function (req, res) {
     // Save the user's homeAccountId in their session
     req.session.userId = response.account.homeAccountId;
 
+    // ここでセッションを再代入して保存を確実にする
+    req.session = { ...req.session };
+
     const user = await graph.getUserDetails(response.accessToken);
 
     // Add the user to user storage
@@ -47,16 +50,16 @@ router.get("/callback", async function (req, res) {
       //  timeZone: user.mailboxSettings.timeZone
     };
   } catch (error) {
-    req.flash("error_msg", {
-      message: "Error completing authentication",
+    req.flash('error_msg', {
+      message: 'Error completing authentication',
       debug: JSON.stringify(error, Object.getOwnPropertyNames(error)),
     });
   }
 
-  res.redirect("/");
+  res.redirect('/');
 });
 
-router.get("/signout", async function (req, res) {
+router.get('/signout', async function (req, res) {
   // Sign out
   if (req.session.userId) {
     // Look up the user's account in the cache
@@ -65,7 +68,7 @@ router.get("/signout", async function (req, res) {
       .getAllAccounts();
 
     const userAccount = accounts.find(
-      (a) => a.homeAccountId === req.session.userId
+      a => a.homeAccountId === req.session.userId
     );
 
     // Remove the account
@@ -76,7 +79,7 @@ router.get("/signout", async function (req, res) {
 
   // Destroy the user's session
   req.session.destroy(function (err) {
-    res.redirect("/");
+    res.redirect('/');
   });
 });
 

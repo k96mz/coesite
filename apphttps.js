@@ -1,7 +1,8 @@
 require('dotenv').config();
 
 //for Azure
-const session = require('express-session');
+// const session = require('express-session');
+const session = require('cookie-session');
 const flash = require('connect-flash');
 const msal = require('@azure/msal-node');
 var cookieParser = require('cookie-parser');
@@ -94,14 +95,38 @@ const vtilePRouter = require('./routes/vtile-pass'); //test 0713
 // Session middleware
 // NOTE: Uses default in-memory session store, which is not
 // suitable for production
+// app.use(
+//   session({
+//     secret: process.env.OAUTH_APP_SECRET,
+//     resave: false,
+//     saveUninitialized: false,
+//     unset: 'destroy',
+//   })
+// );
+
+// Session middleware (cookie-session)
 app.use(
   session({
-    secret: process.env.OAUTH_APP_SECRET,
-    resave: false,
-    saveUninitialized: false,
-    unset: 'destroy',
+    name: 'session',
+    keys: [process.env.OAUTH_APP_SECRET],
+    maxAge: 24 * 60 * 60 * 1000,
+    secure: process.env.NODE_ENV === 'production', // 本番環境のみ secure を有効化
+    httpOnly: true,
+    sameSite: 'lax',
   })
 );
+
+// app.use((req, res, next) => {
+//   if (req.session && req.session.userId) {
+//     req.session = { ...req.session };
+//   }
+//   next();
+// });
+
+app.use((req, res, next) => {
+  console.log('Session Data:', req.session);
+  next();
+});
 
 // Flash middleware
 app.use(flash());
